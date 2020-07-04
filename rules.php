@@ -20,7 +20,7 @@ echo json_encode( $_POST);
  function wc_pagarme_custom_split_rules( $data ) {	
 	// Dados do pedido
 	
-	$idClinica = $_POST['billing_id_clinica']; 		
+	$idClinica = $data['metadata'][0]['value']; 		
 	
 	$order_id = $data['metadata']['order_number'];
 	$order = new WC_Order( $order_id );
