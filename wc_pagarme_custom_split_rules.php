@@ -16,6 +16,7 @@
  * @return array
  */
 
+ // https://www.businessbloomer.com/woocommerce-easily-get-order-info-total-items-etc-from-order-object/
 
 function wc_pagarme_custom_split_rules( $data ) {	
 	// Dados do pedido
@@ -42,7 +43,8 @@ function wc_pagarme_custom_split_rules( $data ) {
     $tamanhoClinica = strlen($idPagarme);
 
     if($idPagarme == "" || $tamanhoClinica < 21){
-        $idPagarme = "re_ckcggvblt1qknx564pj0cw6a7";
+        // conta secundária
+        $idPagarme = "re_ckcggvblt1qknx564pj0cw6a7"; 
     } else{
         $idPagarme;
     }
@@ -76,7 +78,7 @@ function wc_pagarme_custom_split_rules( $data ) {
         
     } else {
 
-        $clinica_amount = intval($order_total * 0.10 * 100);
+        $clinica_amount = intval($order_total * 0.15 * 100);
         $total_left = ($order_total * 100) - $clinica_amount;
         $split_rules[] = array(
             'recipient_id' => $idPagarme, 
@@ -89,7 +91,8 @@ function wc_pagarme_custom_split_rules( $data ) {
   	
 	// Recebedor principal
 	// Melhoria necessária: ler uma configuração geral da loja - recebedor principal
-	$recipient_id = 're_ckb9uu89b0ewdb26dux205gau'; 
+    // Conta primária teste re_ckb9uu89b0ewdb26dux205gau
+    $recipient_id = 're_ckb9psk961f97wm63vzhpfqob';  
 	
 	
 	$split_rules[] = array(

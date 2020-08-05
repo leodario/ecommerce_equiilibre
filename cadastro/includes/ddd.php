@@ -1,5 +1,5 @@
 <select class="form-control">
-    <option value="">Selecione um DDD</option>
+    <option value="">DDD</option>
     <option value="11">11</option>
     <option value="12">12</option>
     <option value="13">13</option>
